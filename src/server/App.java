@@ -1,9 +1,11 @@
 package server;
 
-public class App {
+import shared.IMessenger;
+import shared.MessengerUDP;
 
+public class App {
 	public static void main(String[] args) {
-		System.out.println("Server");
+		IMessenger msg = new MessengerUDP();
 	}
 
 }
