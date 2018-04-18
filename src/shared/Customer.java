@@ -2,7 +2,10 @@ package shared;
 
 public class Customer extends User {
 
-	
+	public Customer(int id, String username, String password) { 
+		super(id, username, password);
+	}
+
 	public void consultBooks() {
 		
 	}
@@ -10,12 +13,5 @@ public class Customer extends User {
 	public void requestBooks() {
 		
 	}
-	
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		super.run();
-	}
-	
 	
 }

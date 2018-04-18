@@ -5,7 +5,13 @@ public class Book {
 	private int id;
 	private String title;
 	private int year;
-	private int userId;
+	private int customerId;
+	
+	public Book(int id, String title, int year) {
+		this.id = id;
+		this.title = title;
+		this.year = year;
+	}
 	
 	public int getId() {
 		return id;
@@ -25,11 +31,11 @@ public class Book {
 	public void setYear(int year) {
 		this.year = year;
 	}
-	public int getUserId() {
-		return userId;
+	public int getCustomerId() {
+		return customerId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setCustomerId(int userId) {
+		this.customerId = userId;
 	}
 	
 }

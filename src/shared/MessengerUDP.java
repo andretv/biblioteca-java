@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.net.UnknownHostException;
 
 public class MessengerUDP implements IMessenger {
+	
 	private int destPort;
 	private DatagramSocket socket;
 	
@@ -54,6 +55,7 @@ public class MessengerUDP implements IMessenger {
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch(Exception e) {
+			System.out.println(e.getMessage()); 
 			e.printStackTrace();
 		}
 	}
