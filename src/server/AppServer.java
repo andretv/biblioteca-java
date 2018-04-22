@@ -1,5 +1,6 @@
 package server;
 
+import shared.ActionPackage;
 import shared.Customer;
 import shared.IMessenger;
 import shared.MessengerUDP;
@@ -12,14 +13,9 @@ public class AppServer {
 		IMessenger messenger = new MessengerUDP(8080);
 		
 		while(true) {
-			Customer customer = (Customer)messenger.receivePackage();
-		
-			if (library.auth(customer)) {
-				System.out.println("AUTENTICOUUUU!!");
-			} else {
-				System.out.println("Usuário não autenticado");
-			}
-			
+			ActionPackage pack = (ActionPackage)messenger.receivePackage();
+			Attendant attendant = new Attendant(library, pack, messenger);
+			attendant.run();
 		}
 		
 	}

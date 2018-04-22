@@ -17,20 +17,26 @@ public class Library {
 		this.populateBooks();
 	}
 	
+	public ArrayList<Book> getBooksList() {
+		return this.books;
+	}
+	
 	public synchronized void borrowBook(Customer customer, Book book) {
 		if (book.getCustomerId() != 0) {
 			try { 
+				System.out.println("Livro locado. Aguardando...");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
 		
+		System.out.println("Usuário alugou o livro");
 		book.setCustomerId(customer.getUserId());
-	
 	}
 	
 	public void returnBook(Book book) {
+		System.out.println("Livro devolvido");
 		book.setCustomerId(0);
 		notify();
 	}
